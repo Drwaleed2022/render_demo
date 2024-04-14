@@ -16,7 +16,7 @@ import requests
 import webbrowser
 from threading import Timer
 
-df=pd.read_excel("https://github.com/Drwaleed2022/YTD_2024.xlsx/blob/main/YTD_2024.xlsx")
+df=pd.read_excel("d:/4-24/YTD_2024.xlsx")
 df.columns=['cost','sales','return','return_profit','profit','total_profit','sales_rep','serial','pharmacy','date','rep','driver','store_num']
 df['sales']=df['sales']-df['return']
 df.drop(axis=1,columns=['cost','return','return_profit','rep','total_profit','serial','driver','store_num'],inplace=True)
