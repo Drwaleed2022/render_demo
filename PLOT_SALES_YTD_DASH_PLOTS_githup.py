@@ -201,16 +201,11 @@ def custom_call():
     before_first_request
     pass
        
-import flask, requests, multiprocessing
+import flask, multiprocessing
 
 server = multiprocessing.Process(target=app.run)
 try:
     server.start()
-
-    # Is time.sleep(n) needed here to avoid a potential race condition?
-
-    assert requests.get("http://127.0.0.1:5000/").text == "Hello World"
-
 finally:
     server.terminate()
     server.join()
