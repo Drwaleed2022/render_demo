@@ -198,14 +198,28 @@ from dash import Output
 from dash import Dash
 from dash.dash import Input
 def custom_call():
-    #Your code
+    before_first_request
     pass
+       
+mport flask, requests, multiprocessing
 
-class CustomServer(Server):
-    def __call__(self, app, *args, **kwargs):
-        custom_call()
-        #Hint: Here you could manipulate app
-        return Server.__call__(self, app, *args, **kwargs)
+app = flask.Flask(__name__)
+
+@app.route("/"):
+def frontpage():
+    return "Hello World"
+
+server = multiprocessing.Process(target=app.run)
+try:
+    server.start()
+
+    # Is time.sleep(n) needed here to avoid a potential race condition?
+
+    assert requests.get("http://127.0.0.1:5000/").text == "Hello World"
+
+finally:
+    server.terminate()
+    server.join()
 app = Dash(__name__)
 server=app.server
 
