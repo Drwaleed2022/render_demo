@@ -197,6 +197,15 @@ def create_tables():
 from dash import Output
 from dash import Dash
 from dash.dash import Input
+def custom_call():
+    #Your code
+    pass
+
+class CustomServer(Server):
+    def __call__(self, app, *args, **kwargs):
+        custom_call()
+        #Hint: Here you could manipulate app
+        return Server.__call__(self, app, *args, **kwargs)
 app = Dash(__name__)
 server=app.server
 
