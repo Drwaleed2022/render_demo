@@ -8,6 +8,7 @@ import numpy as np
 import calendar
 import datetime
 
+
 df=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/YTD_2024.csv")
 df.columns=['cost','sales','return','return_profit','profit','total_profit','sales_rep','serial','pharmacy','date','rep','driver','store_num']
 df['sales']=df['sales']-df['return']
@@ -186,20 +187,11 @@ sales_rep_sales.loc['TOTAL']=sales_rep_sales.loc['ISLAM']+sales_rep_sales.loc['S
 sales_rep_sales=sales_rep_sales.sort_values('YTD',ascending=False)
 sales_rep_sales.drop(axis=0,index='others',inplace=True)
 sales_rep_sales=sales_rep_sales.transpose()
-def create_tables():
-    # The following line will remove this handler, making it
-    # only run on the first request
-    app.before_request_funcs[None].remove(create_tables)
-
-    db.create_all()
     
 # Create a dash application
 from dash import Output
 from dash import Dash
 from dash.dash import Input
-def custom_call():
-    before_first_request
-    pass
       
 import flask, multiprocessing
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
@@ -246,9 +238,10 @@ def update_output(sales_rep,month):
     sales_rep_curve1=px.bar(sales_rep_sales.loc[month],color=Sales_representative,title = 'Sales per rep in selected month',text_auto=True)
     sales_rep_curve2=px.bar(sales_rep_sales,color=ALL_YEAR,y=sales_rep,title = 'Sales  in 2024 by specific sales rep',text_auto=True)
     return[sales_rep_curve1,sales_rep_curve2]
+#port=8070
 #def open_browser() :
     #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
-    Timer(1,open_browser).start();
-    app.run_server(debug=True)    
+    #Timer(1,open_browser).start();
+    app.run_server()       
    
