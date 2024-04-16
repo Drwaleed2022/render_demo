@@ -195,7 +195,6 @@ def create_tables():
 $ ps aux | grep flask
 $ kill
 $ flask run       
-app.run(host=’0.0.0.0′, port=5000, debug=True)
 # Create a dash application
 from dash import Output
 from dash.dash import Input
