@@ -217,11 +217,7 @@ app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard',
                                 # Segment 2
                                 html.Div([                                        
                                         html.Div(dcc.Graph(id='sales_rep_curve2'))
-                                ], style={'font-size': 25,'width':'1400px'}),
-                                  # Segment 1
-                                html.Div([
-                                        html.Div( dash_table.DataTable(sales_rep_sales.to_dict('records'), [{"name": i, "id": i} for i in sales_rep_sales.columns]))
-                                ], style={'font-size': 25,'color': 'purple'})                                
+                                ], style={'font-size': 25,'width':'1400px'})                                                            
                                 
                                 ])
 # Callback decorator
@@ -245,6 +241,6 @@ def update_output(sales_rep,month):
     #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
-    app.run_server(host ="127.0.0.1",port=5000)  
+    app.run_server(debug=False)  
 
    
