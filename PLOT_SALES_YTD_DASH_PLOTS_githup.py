@@ -203,12 +203,6 @@ def custom_call():
        
 import flask, requests, multiprocessing
 
-app = flask.Flask(__name__)
-
-@app.route("/"):
-def frontpage():
-    return "Hello World"
-
 server = multiprocessing.Process(target=app.run)
 try:
     server.start()
