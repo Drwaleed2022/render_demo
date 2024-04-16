@@ -195,7 +195,7 @@ from dash import Dash
 from dash.dash import Input
       
 import flask, multiprocessing
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(__name__)
 server=app.server
 # Build dash app layout
 app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard', 
@@ -213,18 +213,12 @@ app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard',
                                  # Segment 1
                                 html.Div([
                                         html.Div(dcc.Graph(id='sales_rep_curve1'))
-                                ], style={'font-size': 25,'width':'1400px'}),                            
-                                # Segment 2
-                                html.Div([                                        
-                                        html.Div(dcc.Graph(id='sales_rep_curve2'))
                                 ], style={'font-size': 25,'width':'1400px'})                                                            
                                 
                                 ])
 # Callback decorator
 @app.callback( [
-               Output(component_id='sales_rep_curve1', component_property='figure'),
-               Output(component_id='sales_rep_curve2', component_property='figure')
-               
+               Output(component_id='sales_rep_curve1', component_property='figure')               
             ],
                [Input(component_id='sales_rep', component_property='value'),
                 Input(component_id='month', component_property='value')])
@@ -233,8 +227,7 @@ app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard',
 # Computation to callback function and return graph
 def update_output(sales_rep,month): 
     sales_rep_curve1=px.bar(sales_rep_sales.loc[month],color=Sales_representative,title = 'Sales per rep in selected month',text_auto=True)
-    sales_rep_curve2=px.bar(sales_rep_sales,color=ALL_YEAR,y=sales_rep,title = 'Sales  in 2024 by specific sales rep',text_auto=True)
-    return[sales_rep_curve1,sales_rep_curve2]
+        return[sales_rep_curve1]
 
 #port=8070
 #def open_browser() :
