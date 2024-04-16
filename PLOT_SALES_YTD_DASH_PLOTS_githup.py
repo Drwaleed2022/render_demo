@@ -192,7 +192,10 @@ def create_tables():
     app.before_request_funcs[None].remove(create_tables)
 
     db.create_all()
-     
+$ ps aux | grep flask
+$ kill
+$ flask run       
+app.run(host=’0.0.0.0′, port=5000, debug=True)
 # Create a dash application
 from dash import Output
 from dash.dash import Input
