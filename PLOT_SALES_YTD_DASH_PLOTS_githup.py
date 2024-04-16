@@ -7,7 +7,8 @@ from dash import html,dcc,dash_table
 import numpy as np
 import calendar
 import datetime
-
+import webbrowser
+from threading import Timer
 
 df=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/YTD_2024.csv")
 df.columns=['cost','sales','return','return_profit','profit','total_profit','sales_rep','serial','pharmacy','date','rep','driver','store_num']
@@ -238,10 +239,11 @@ def update_output(sales_rep,month):
     sales_rep_curve1=px.bar(sales_rep_sales.loc[month],color=Sales_representative,title = 'Sales per rep in selected month',text_auto=True)
     sales_rep_curve2=px.bar(sales_rep_sales,color=ALL_YEAR,y=sales_rep,title = 'Sales  in 2024 by specific sales rep',text_auto=True)
     return[sales_rep_curve1,sales_rep_curve2]
-#port=8070
-#def open_browser() :
-    #webbrowser.open_new("http://localhost:{}".format(port))                 
+
+port=8070
+def open_browser() :
+    webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
-    #Timer(1,open_browser).start();
+    Timer(1,open_browser).start();
     app.run_server()       
    
