@@ -245,16 +245,6 @@ def update_output(sales_rep,month):
     #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
-    app.run_server()  
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 4000;
+    app.run_server(debug=False)  
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})       
    
