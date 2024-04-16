@@ -227,7 +227,7 @@ app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard',
 # Computation to callback function and return graph
 def update_output(sales_rep,month): 
     sales_rep_curve1=px.bar(sales_rep_sales.loc[month],color=Sales_representative,title = 'Sales per rep in selected month',text_auto=True)
-        return[sales_rep_curve1]
+    return sales_rep_curve1
 
 #port=8070
 #def open_browser() :
