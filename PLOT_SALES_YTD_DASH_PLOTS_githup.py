@@ -205,6 +205,32 @@ import flask, multiprocessing
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
 server=app.server
 # Build dash app layout
+app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard', 
+                                style={'textAlign': 'center', 'color': '#503D36',
+                                'font-size': 35}),
+                                
+                                html.Div([
+                                        html.Div(["Sales rep:",dcc.Dropdown(Sales_representative,id='sales_rep', value='SHIMAA', 
+                                style={'height':'35px','width':'700px', 'font-size': 20})]),
+                                        html.Div(["Month:"  ,dcc.Dropdown(ALL_YEAR,id='month',value='APR', 
+                                style={'height':'35px','width':'700px', 'font-size': 20})])                                                            
+                                ],style={'font-size': 25,'display': 'flex'}),                               
+                                html.Br(),
+                                html.Br(),
+                                 # Segment 1
+                                html.Div([
+                                        html.Div(dcc.Graph(id='sales_rep_curve1'))
+                                ], style={'font-size': 25,'width':'1400px'}),                            
+                                # Segment 2
+                                html.Div([                                        
+                                        html.Div(dcc.Graph(id='sales_rep_curve2'))
+                                ], style={'font-size': 25,'width':'1400px'}),
+                                  # Segment 1
+                                html.Div([
+                                        html.Div( dash_table.DataTable(sales_rep_sales.to_dict('records'), [{"name": i, "id": i} for i in sales_rep_sales.columns]))
+                                ], style={'font-size': 25,'color': 'purple'})                                
+                                
+                                ])
 # Callback decorator
 @app.callback( [
                Output(component_id='sales_rep_curve1', component_property='figure'),
