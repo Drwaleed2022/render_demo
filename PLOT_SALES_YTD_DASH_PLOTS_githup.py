@@ -200,16 +200,11 @@ from dash.dash import Input
 def custom_call():
     before_first_request
     pass
-       
+      
 import flask, multiprocessing
 app = Dash(__name__)
 server=app.server
-server = multiprocessing.Process(target=app.run)
-try:
-    server.start()
-finally:
-    server.terminate()
-    server.join()
+app.before_request_funcs = [(None, my_fun())] 
 # Build dash app layout
 # Callback decorator
 @app.callback( [
