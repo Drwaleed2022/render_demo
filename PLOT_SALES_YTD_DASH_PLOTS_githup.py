@@ -186,7 +186,6 @@ sales_rep_sales.loc['TOTAL']=sales_rep_sales.loc['ISLAM']+sales_rep_sales.loc['S
 sales_rep_sales=sales_rep_sales.sort_values('YTD',ascending=False)
 sales_rep_sales.drop(axis=0,index='others',inplace=True)
 sales_rep_sales=sales_rep_sales.transpose()
-@app.before_request
 def create_tables():
     # The following line will remove this handler, making it
     # only run on the first request
