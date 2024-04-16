@@ -192,12 +192,7 @@ def create_tables():
     app.before_request_funcs[None].remove(create_tables)
 
     db.create_all()
-import warnings
-import flask_monitoringdashboard as monitoring_dashboard
-with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=DeprecationWarning)
-    monitoring_dashboard.config.init_from(file=flask_monitoring_file_path)
-    monitoring_dashboard.bind(app)       
+     
 # Create a dash application
 from dash import Output
 from dash.dash import Input
