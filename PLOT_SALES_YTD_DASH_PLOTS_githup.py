@@ -5,15 +5,8 @@ import plotly.graph_objects as go
 import dash
 from dash import html,dcc,dash_table
 import numpy as np
-import seaborn as sns
-from ydata_profiling import ProfileReport
-from arabic_reshaper import arabic_reshaper
 import calendar
 import datetime
-import urllib.request
-import requests
-import webbrowser
-from threading import Timer
 
 df=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/YTD_2024.csv")
 df.columns=['cost','sales','return','return_profit','profit','total_profit','sales_rep','serial','pharmacy','date','rep','driver','store_num']
