@@ -202,7 +202,8 @@ def custom_call():
     pass
       
 import flask, multiprocessing
-app = Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
+)
 server=app.server
 # Build dash app layout
 # Callback decorator
@@ -224,5 +225,5 @@ def update_output(sales_rep,month):
     #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
-    app.run_server(debug=False)    
+    app.run_server()    
    
