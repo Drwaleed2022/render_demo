@@ -195,6 +195,7 @@ def create_tables():
     
 # Create a dash application
 from dash import Output
+from dash import Dash
 from dash.dash import Input
 app = Dash(__name__)
 server=app.server
