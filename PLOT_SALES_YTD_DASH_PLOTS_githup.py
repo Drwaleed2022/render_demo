@@ -186,6 +186,22 @@ sales_rep_sales.loc['TOTAL']=sales_rep_sales.loc['ISLAM']+sales_rep_sales.loc['S
 sales_rep_sales=sales_rep_sales.sort_values('YTD',ascending=False)
 sales_rep_sales.drop(axis=0,index='others',inplace=True)
 sales_rep_sales=sales_rep_sales.transpose()
+@app.before_request
+def create_tables():
+    # The following line will remove this handler, making it
+    # only run on the first request
+    app.before_request_funcs[None].remove(create_tables)
+
+    db.create_all()
+import warnings
+import flask_monitoringdashboard as monitoring_dashboard
+from your_package import create_app()
+
+app = create_app()
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    monitoring_dashboard.config.init_from(file=flask_monitoring_file_path)
+    monitoring_dashboard.bind(app)       
 # Create a dash application
 from dash import Output
 from dash.dash import Input
@@ -194,6 +210,7 @@ dash_app = Dash(__name__)
 flask_app = Flask(__name__)
 application = DispatcherMiddleware(flask_app, {'/dash': dash_app.server})
 server=app.server
+
 # Build dash app layout
 # Callback decorator
 @app.callback( [
