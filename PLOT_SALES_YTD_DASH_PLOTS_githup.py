@@ -195,9 +195,6 @@ def create_tables():
     db.create_all()
 import warnings
 import flask_monitoringdashboard as monitoring_dashboard
-from your_package import create_app()
-
-app = create_app()
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=DeprecationWarning)
     monitoring_dashboard.config.init_from(file=flask_monitoring_file_path)
