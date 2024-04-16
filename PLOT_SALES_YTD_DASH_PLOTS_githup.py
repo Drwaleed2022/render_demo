@@ -190,6 +190,9 @@ sales_rep_sales=sales_rep_sales.transpose()
 from dash import Output
 from dash.dash import Input
 app = dash.Dash(__name__)
+dash_app = Dash(__name__)
+flask_app = Flask(__name__)
+application = DispatcherMiddleware(flask_app, {'/dash': dash_app.server})
 server=app.server
 # Build dash app layout
 # Callback decorator
