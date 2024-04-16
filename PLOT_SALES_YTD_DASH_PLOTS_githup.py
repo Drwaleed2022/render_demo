@@ -192,17 +192,11 @@ def create_tables():
     app.before_request_funcs[None].remove(create_tables)
 
     db.create_all()
-from flask import before_first_request
-def before_first_request():
-    pass
-    before_first_request()     
+    
 # Create a dash application
 from dash import Output
 from dash.dash import Input
-app = dash.Dash(__name__)
-dash_app = Dash(__name__)
-flask_app = Flask(__name__)
-application = DispatcherMiddleware(flask_app, {'/dash': dash_app.server})
+app = Dash(__name__)
 server=app.server
 
 # Build dash app layout
@@ -225,5 +219,5 @@ def update_output(sales_rep,month):
     #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
-    app.run_server()    
+    app.run_server(debug=False)    
    
