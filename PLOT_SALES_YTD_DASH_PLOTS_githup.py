@@ -16,10 +16,6 @@ df['Area']=df['pharmacy']
 dates=df['date'].to_list()
 dates=pd.to_datetime(dates,dayfirst=True)
 df['Month'] =pd.DatetimeIndex(dates).month
-for i in df['Month']:
-    df['Month'].replace(i,calendar.month_abbr[i],inplace=True)
-    print(df['Month'])
-df['Month']=df['Month'].str.upper()    
 df.drop(axis=1,columns='date',inplace=True)
 df['profit']=df['profit'].round()
 df['sales']=df['sales'].round()
@@ -95,40 +91,40 @@ ALL_YEAR= ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DE
 for i in ALL_YEAR:
     month=i
     print(month)              
-all_sales_JAN=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JAN'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_JAN=df[['pharmacy','sales','profit','sales_rep']][df['Month']==1].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_JAN.rename(columns={'sales':'JAN','profit':'JAN_profit'}, inplace=True)
 all_sales_JAN
-all_sales_FEB=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='FEB'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_FEB=df[['pharmacy','sales','profit','sales_rep']][df['Month']==2].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_FEB.rename(columns={'sales':'FEB','profit':'FEB_profit'}, inplace=True)
 all_sales_FEB
-all_sales_MAR=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='MAR'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_MAR=df[['pharmacy','sales','profit','sales_rep']][df['Month']==3].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_MAR.rename(columns={'sales':'MAR','profit':'MAR_profit'}, inplace=True)
 all_sales_MAR
-all_sales_APR=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='APR'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_APR=df[['pharmacy','sales','profit','sales_rep']][df['Month']==4].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_APR.rename(columns={'sales':'APR','profit':'APR_profit'}, inplace=True)
 all_sales_APR
-all_sales_MAY=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='MAY'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_MAY=df[['pharmacy','sales','profit','sales_rep']][df['Month']==5].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_MAY.rename(columns={'sales':'MAY','profit':'MAY_profit'}, inplace=True)
 all_sales_MAY
-all_sales_JUN=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JUN'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_JUN=df[['pharmacy','sales','profit','sales_rep']][df['Month']==6].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_JUN.rename(columns={'sales':'JUN','profit':'JUN_profit'}, inplace=True)
 all_sales_JUN
-all_sales_JUL=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JUL'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_JUL=df[['pharmacy','sales','profit','sales_rep']][df['Month']==7].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_JUL.rename(columns={'sales':'JUL','profit':'JUL_profit'}, inplace=True)
 all_sales_JUL
-all_sales_AUG=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='AUG'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_AUG=df[['pharmacy','sales','profit','sales_rep']][df['Month']==8].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_AUG.rename(columns={'sales':'AUG','profit':'AUG_profit'}, inplace=True)
 all_sales_AUG
-all_sales_SEP=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='SEP'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_SEP=df[['pharmacy','sales','profit','sales_rep']][df['Month']==9].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_SEP.rename(columns={'sales':'SEP','profit':'SEP_profit'}, inplace=True)
 all_sales_SEP
-all_sales_OCT=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='OCT'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_OCT=df[['pharmacy','sales','profit','sales_rep']][df['Month']==10].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_OCT.rename(columns={'sales':'OCT','profit':'OCT_profit'}, inplace=True)
 all_sales_OCT
-all_sales_NOV=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='NOV'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_NOV=df[['pharmacy','sales','profit','sales_rep']][df['Month']==11].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_NOV.rename(columns={'sales':'NOV','profit':'NOV_profit'}, inplace=True)
 all_sales_NOV
-all_sales_DEC=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='DEC'].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+all_sales_DEC=df[['pharmacy','sales','profit','sales_rep']][df['Month']==12].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 all_sales_DEC.rename(columns={'sales':'DEC','profit':'DEC_profit'}, inplace=True)
 all_sales_DEC
 all_sales_YTD=df[['pharmacy','sales','profit','sales_rep']].groupby(['pharmacy','sales_rep']).agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
@@ -139,40 +135,40 @@ all_sales.fillna(0,inplace=True)
 all_sales.sort_values('YTD',ascending=False,inplace=True)
 all_sales.reset_index(inplace=True)
 all_sales
-sales_rep_JAN=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JAN'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_JAN=df[['pharmacy','sales','profit','sales_rep']][df['Month']==1].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_JAN.rename(columns={'sales':'JAN','profit':'JAN_profit'}, inplace=True)
 sales_rep_JAN
-sales_rep_FEB=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='FEB'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_FEB=df[['pharmacy','sales','profit','sales_rep']][df['Month']==2].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_FEB.rename(columns={'sales':'FEB','profit':'FEB_profit'}, inplace=True)
 sales_rep_FEB
-sales_rep_MAR=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='MAR'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_MAR=df[['pharmacy','sales','profit','sales_rep']][df['Month']==3].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_MAR.rename(columns={'sales':'MAR','profit':'MAR_profit'}, inplace=True)
 sales_rep_MAR
-sales_rep_APR=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='APR'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_APR=df[['pharmacy','sales','profit','sales_rep']][df['Month']==4].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_APR.rename(columns={'sales':'APR','profit':'APR_profit'}, inplace=True)
 sales_rep_APR
-sales_rep_MAY=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='MAY'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_MAY=df[['pharmacy','sales','profit','sales_rep']][df['Month']==5].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_MAY.rename(columns={'sales':'MAY','profit':'MAY_profit'}, inplace=True)
 sales_rep_MAY
-sales_rep_JUN=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JUN'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_JUN=df[['pharmacy','sales','profit','sales_rep']][df['Month']==6].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_JUN.rename(columns={'sales':'JUN','profit':'JUN_profit'}, inplace=True)
 sales_rep_JUN
-sales_rep_JUL=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='JUL'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_JUL=df[['pharmacy','sales','profit','sales_rep']][df['Month']==7].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_JUL.rename(columns={'sales':'JUL','profit':'JUL_profit'}, inplace=True)
 sales_rep_JUL
-sales_rep_AUG=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='AUG'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_AUG=df[['pharmacy','sales','profit','sales_rep']][df['Month']==8].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_AUG.rename(columns={'sales':'AUG','profit':'AUG_profit'}, inplace=True)
 sales_rep_AUG
-sales_rep_SEP=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='SEP'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_SEP=df[['pharmacy','sales','profit','sales_rep']][df['Month']==9].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_SEP.rename(columns={'sales':'SEP','profit':'SEP_profit'}, inplace=True)
 sales_rep_SEP
-sales_rep_OCT=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='OCT'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_OCT=df[['pharmacy','sales','profit','sales_rep']][df['Month']==10].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_OCT.rename(columns={'sales':'OCT','profit':'OCT_profit'}, inplace=True)
 sales_rep_OCT
-sales_rep_NOV=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='NOV'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_NOV=df[['pharmacy','sales','profit','sales_rep']][df['Month']==11].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_NOV.rename(columns={'sales':'NOV','profit':'NOV_profit'}, inplace=True)
 sales_rep_NOV
-sales_rep_DEC=df[['pharmacy','sales','profit','sales_rep']][df['Month']=='DEC'].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
+sales_rep_DEC=df[['pharmacy','sales','profit','sales_rep']][df['Month']==12].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
 sales_rep_DEC.rename(columns={'sales':'DEC','profit':'DEC_profit'}, inplace=True)
 sales_rep_DEC
 sales_rep_YTD=df[['pharmacy','sales','profit','sales_rep']].groupby('sales_rep').agg({"sales":sum,"profit":sum}).sort_values('sales',ascending=False)
