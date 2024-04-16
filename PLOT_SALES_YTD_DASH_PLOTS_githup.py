@@ -204,6 +204,8 @@ def custom_call():
 import flask, multiprocessing
 app = Dash(__name__)
 server=app.server
+def before_first_request():
+    my_fun()
 app.before_request_funcs = [(None, my_fun())] 
 # Build dash app layout
 # Callback decorator
