@@ -240,10 +240,21 @@ def update_output(sales_rep,month):
     sales_rep_curve2=px.bar(sales_rep_sales,color=ALL_YEAR,y=sales_rep,title = 'Sales  in 2024 by specific sales rep',text_auto=True)
     return[sales_rep_curve1,sales_rep_curve2]
 
-port=8070
-def open_browser() :
-    webbrowser.open_new("http://localhost:{}".format(port))                 
+#port=8070
+#def open_browser() :
+    #webbrowser.open_new("http://localhost:{}".format(port))                 
 if __name__ == '__main__':
-    Timer(1,open_browser).start();
-    app.run_server()       
+    #Timer(1,open_browser).start();
+    app.run_server()  
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})       
    
