@@ -202,16 +202,14 @@ def custom_call():
     pass
        
 import flask, multiprocessing
-
+app = Dash(__name__)
+server=app.server
 server = multiprocessing.Process(target=app.run)
 try:
     server.start()
 finally:
     server.terminate()
     server.join()
-app = Dash(__name__)
-server=app.server
-
 # Build dash app layout
 # Callback decorator
 @app.callback( [
