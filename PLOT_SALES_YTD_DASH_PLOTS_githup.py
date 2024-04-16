@@ -192,8 +192,10 @@ def create_tables():
     app.before_request_funcs[None].remove(create_tables)
 
     db.create_all()
-$ kill
-$ flask run       
+from flask import before_first_request
+def before_first_request():
+    pass
+    before_first_request()     
 # Create a dash application
 from dash import Output
 from dash.dash import Input
