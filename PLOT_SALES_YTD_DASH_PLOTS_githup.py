@@ -64,10 +64,25 @@ def update_output(sales_rep,month):
     return[sales_rep_curve1,sales_rep_curve2]
 #port=8070
 #def open_browser() :
-    #webbrowser.open_new("http://localhost:{}".format(port))                 
+    #webbrowser.open_new("http://localhost:{}".format(port))  
+import os
+
+
+
+workers = int(os.environ.get('GUNICORN_PROCESSES', '2'))
+
+threads = int(os.environ.get('GUNICORN_THREADS', '4'))
+
+# timeout = int(os.environ.get('GUNICORN_TIMEOUT', '120'))
+
+bind = os.environ.get('GUNICORN_BIND', '0.0.0.0:8080')
+
+forwarded_allow_ips = '*'
+
+secure_scheme_headers = { 'X-Forwarded-Proto': 'https' }
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
-    app.run_server(host='127.0.0.1',port=5000,debug=False)
+    app.run_server(host='0.0.0.0',port=8080,debug=False)
  
 
    
