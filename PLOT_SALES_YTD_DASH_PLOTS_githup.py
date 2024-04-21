@@ -11,16 +11,10 @@ import gunicorn
 #
 Area_rep_sales=pd.read_csv('https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_rep_sales.csv')
 Area_rep_sales.set_index('Area_rep',inplace=True)
-Area_rep_profit=pd.read_csv('e:/DASHBOARD/Area_rep_profit.csv')
-Area_rep_profit.set_index('Area_rep',inplace=True)
 Area_sales=pd.read_csv('https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_sales.csv')
 Area_sales.set_index('Area',inplace=True)
-Area_profit=pd.read_csv('e:/DASHBOARD/Area_profit.csv')
-Area_profit.set_index('Area',inplace=True)
 sales_rep_sales=pd.read_csv('https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/sales_rep_sales.csv')
 sales_rep_sales.set_index('sales_rep',inplace=True)
-sales_rep_profit=pd.read_csv('e:/DASHBOARD/sales_rep_profit.csv')
-sales_rep_profit.set_index('sales_rep',inplace=True) 
 Sales_representative=['ESRAA','SHIMAA','AYA','OMET','ISUPPLY','ISLAM','TOTAL']
 for i in Sales_representative:
     sales_rep= i
