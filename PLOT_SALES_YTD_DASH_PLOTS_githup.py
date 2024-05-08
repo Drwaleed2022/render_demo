@@ -4,15 +4,10 @@ import plotly.graph_objects as go
 import dash
 from dash import html,dcc,dash_table
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
-from ydata_profiling import ProfileReport
-from arabic_reshaper import arabic_reshaper
 import calendar
 import datetime
 import gunicorn
-import webbrowser
-from threading import Timer
 AREA_REP_SALES_PROFIT=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES_PROFIT.csv")
 AREA_REP_PROFIT=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_rep_profit.csv")
 AREA_REP_SALES=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_rep_sales.csv")
