@@ -29,7 +29,8 @@ for i in PHARMACY:
     print(pharmacy)     
 from dash import Output
 from dash import Dash
-from dash.dash import Input      
+from dash.dash import Input
+      
 import flask, multiprocessing
 app = Dash(__name__, suppress_callback_exceptions=True)
 server=app.server
