@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import dash
 from dash import html,dcc,dash_table
@@ -27,8 +28,11 @@ for i in PHARMACY:
     pharmacy= i
     print(pharmacy)     
 from dash import Output
-from dash.dash import Input
-app = dash.Dash(__name__)
+from dash import Dash
+from dash.dash import Input      
+import flask, multiprocessing
+app = Dash(__name__, suppress_callback_exceptions=True)
+server=app.server
 # Build dash app layout
 app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard', 
                                 style={'textAlign': 'center', 'color': '#503D36',
@@ -94,8 +98,8 @@ def update_output(area,date,pharmacy):
     #webbrowser.open_new("http://localhost:{}".format(port))  
 
 if __name__ == '__main__':
-    #Timer(1,open_browser).start();
-    app.run_server(host='0.0.0.0',port=5050,debug=False)
+    #Timer(1,open_browser).start();        
+    app.run_server(host='0.0.0.0',port=5000,debug=False)
  
 
    
