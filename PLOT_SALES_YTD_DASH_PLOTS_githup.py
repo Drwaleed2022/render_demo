@@ -4,7 +4,6 @@ import plotly.graph_objects as go
 import dash
 from dash import html,dcc,dash_table
 import numpy as np
-import seaborn as sns
 import calendar
 import datetime
 import gunicorn
