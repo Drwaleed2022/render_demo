@@ -26,7 +26,8 @@ all_pharmacies_sales.set_index('pharmacy',inplace=True)
 PHARMACY=all_pharmacies_sales.index
 for i in PHARMACY:
     pharmacy= i
-    print(pharmacy)     
+    print(pharmacy)
+AREA_REP_SALES_reindex.drop(axis=1,columns='Unnamed: 0',inplace=True)    
 from dash import Output
 from dash import Dash
 from dash.dash import Input
