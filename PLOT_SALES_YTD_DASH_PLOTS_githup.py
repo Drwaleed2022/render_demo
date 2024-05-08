@@ -14,8 +14,8 @@ import gunicorn
 import webbrowser
 from threading import Timer
 AREA_REP_SALES_PROFIT=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES_PROFIT.csv")
-AREA_REP_PROFIT=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_PROFIT.csv")
-AREA_REP_SALES=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES.csv")
+AREA_REP_PROFIT=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_rep_profit.csv")
+AREA_REP_SALES=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/Area_rep_sales.csv")
 AREA_REP_SALES_reindex=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES_reindex.csv")
 all_pharmacies_sales=pd.read_csv("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/all_pharmacies_sales.csv")
 AREA_REP_SALES.set_index('Area_rep',inplace=True)
