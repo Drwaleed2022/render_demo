@@ -98,6 +98,8 @@ def update_output(area,date):
     return[area_rep_curve0,area_rep_curve1,area_rep_curve5,area_rep_curve2,area_rep_curve3,area_rep_curve4]
              
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    #Timer(1,open_browser).start();
+        
+    app.run_server(host='0.0.0.0',port=5000,debug=False)
 
    
