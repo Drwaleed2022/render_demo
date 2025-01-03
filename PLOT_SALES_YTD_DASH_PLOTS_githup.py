@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 import dash
 from dash import html,dcc,dash_table
 import numpy as np
-import seaborn as sns
 from ydata_profiling import ProfileReport
 from arabic_reshaper import arabic_reshaper
 import calendar
