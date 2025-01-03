@@ -12,7 +12,6 @@ from threading import Timer
 import calendar
 import datetime
 import gunicorn
-pip install openpyxl
 import openpyxl
 AREA_REP_SALES=pd.read_excel("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES.xlsx")
 AREA_REP_SALES_PROFIT=pd.read_excel("https://raw.githubusercontent.com/Drwaleed2022/render_demo/main/AREA_REP_SALES_PROFIT.xlsx")
