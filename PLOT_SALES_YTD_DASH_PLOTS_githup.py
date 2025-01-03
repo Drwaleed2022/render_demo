@@ -96,12 +96,9 @@ def update_output(area,date):
     area_rep_curve3=px.scatter(AREA_REP_SALES.loc[['SHIMAA','ESRAA','AYA','OMET','I_SUPPLY','Abo Mtamir / IHAB']], y=date, size=date,text=date,hover_name=date, title='Sales rep sales in specific month',color=date, size_max=120)
     area_rep_curve4=px.pie(AREA_REP_SALES.loc[[ 'GOMLA', 'global_pharmacy']],names=['GOMLA', 'global_pharmacy'],values=date,title = ' Gomla & Pharmacy sales ratio in specific month ' )
     return[area_rep_curve0,area_rep_curve1,area_rep_curve5,area_rep_curve2,area_rep_curve3,area_rep_curve4]
-
-port=8060
-def open_browser() :
-    webbrowser.open_new("http://localhost:{}".format(port))                 
+             
 if __name__ == '__main__':
     Timer(1,open_browser).start();
-    app.run_server(port=8060) 
+    app.run_server() 
 
    
