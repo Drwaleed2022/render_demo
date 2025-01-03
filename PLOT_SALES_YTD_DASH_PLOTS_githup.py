@@ -9,8 +9,6 @@ import calendar
 import datetime
 import webbrowser
 from threading import Timer
-import arabic_reshaper
-from bidi.algorithm import get_display
 import calendar
 import datetime
 import gunicorn
