@@ -38,7 +38,7 @@ for i in Date:
 #AREA_REP_SALES_PROFIT.drop(axis=1,columns='Unnamed: 0',inplace=True)    
 from dash import Output
 from dash.dash import Input
-app = dash.Dash(__name__)
+app =dash.Dash(__name__, suppress_callback_exceptions=True)
 # Build dash app layout
 app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard', 
                                 style={'textAlign': 'center', 'color': '#503D36',
@@ -100,6 +100,6 @@ def update_output(area,date):
 if __name__ == '__main__':
     #Timer(1,open_browser).start();
         
-    app.run_server(host='0.0.0.0',port=5000,debug=False)
+    app.run_server(debug=False)
 
    
