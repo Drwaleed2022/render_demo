@@ -37,8 +37,11 @@ for i in Date:
 
 #AREA_REP_SALES_PROFIT.drop(axis=1,columns='Unnamed: 0',inplace=True)    
 from dash import Output
-from dash.dash import Input
-app =dash.Dash(__name__, suppress_callback_exceptions=True)
+from dash import Dash
+from dash.dash import Input    
+import flask, multiprocessing
+app = Dash(__name__, suppress_callback_exceptions=True)
+server=app.server
 # Build dash app layout
 app.layout = html.Div(children=[ html.H1('2024 Sales Statistics Dashboard', 
                                 style={'textAlign': 'center', 'color': '#503D36',
